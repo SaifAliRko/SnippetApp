@@ -40,7 +40,7 @@ export default async function SnippetShowPage({
 }
 export async function generateStaticParams() {
   const snippets = await db.snippet.findMany();
-  return snippets.map((snippet) => ({
+  return snippets.map((snippet: { id: number }) => ({
     id: snippet.id.toString(),
   }));
 }
